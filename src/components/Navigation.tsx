@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Home, Briefcase, FileText, Mail } from "lucide-react";
+import { Home, Bot, FileText, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", url: "/", icon: Home },
-  { name: "Portfolio", url: "/portfolio", icon: Briefcase },
+  { name: "AI Services", url: "/ai-services", icon: Bot },
   { name: "Get Started", url: "/form", icon: FileText },
   { name: "Contact", url: "/contact", icon: Mail },
 ];
