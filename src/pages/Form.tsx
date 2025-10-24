@@ -19,7 +19,7 @@ const Form = () => {
     email: "",
     phone: "",
     contact_method: "Email",
-    logo_status: "",
+    logo_status: "Select an option",
     brand_colors: "",
     brand_fonts: "",
     style: "Modern",
@@ -78,7 +78,7 @@ const Form = () => {
     {
       title: "Branding",
       fields: [
-        { name: "logo_status", label: "Do you have a logo?", type: "select", options: ["", "Yes, I have one", "No, I need one created"] },
+        { name: "logo_status", label: "Do you have a logo?", type: "select", options: ["Select an option", "Yes, I have one", "No, I need one created"] },
         { name: "brand_colors", label: "Brand Colors", type: "input", placeholder: "e.g. #000000, #FF5733" },
         { name: "brand_fonts", label: "Brand Fonts", type: "input", placeholder: "e.g. Poppins, Lato" },
         { name: "style", label: "Style Preference", type: "select", options: ["Modern", "Minimalist", "Elegant", "Corporate", "Playful", "Artistic"] }
