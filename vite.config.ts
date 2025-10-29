@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/orbitalevo-web/", // 👈 ADD THIS
+  base: "/", // Use root base to work on all hosts
   server: {
     host: "::",
     port: 8080,
