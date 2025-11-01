@@ -45,11 +45,66 @@ const Form = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // TODO: Replace this with your Zapier webhook URL
+    // Get this from: https://zapier.com/app/zaps
+    // Create a new Zap with "Webhooks by Zapier" trigger (Catch Hook)
+    // Then add "Google Sheets" action to append a new row
+    const ZAPIER_WEBHOOK_URL = "YOUR_ZAPIER_WEBHOOK_URL_HERE";
     
-    toast.success("Form submitted successfully! We'll be in touch soon.");
-    setIsSubmitting(false);
+    try {
+      // Send data to Zapier webhook
+      const response = await fetch(ZAPIER_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors", // Handle CORS
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          submitted_from: window.location.origin,
+        }),
+      });
+
+      toast.success("Form submitted successfully! We'll be in touch soon.");
+      
+      // Reset form
+      setFormData({
+        business_name: "",
+        industry: "",
+        description: "",
+        unique: "",
+        name: "",
+        email: "",
+        phone: "",
+        contact_method: "Email",
+        logo_status: "Select an option",
+        brand_colors: "",
+        brand_fonts: "",
+        style: "Modern",
+        domain_status: "No",
+        domain_name: "",
+        hosting: "",
+        hosting_help: "Yes",
+        goal: "",
+        pages: "",
+        content_status: "No, I need help creating content",
+        features: "",
+        inspiration: "",
+        seo_keywords: "",
+        socials: "",
+        analytics: "Yes",
+        start_date: "",
+        launch_date: "",
+        budget: "",
+        notes: ""
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
