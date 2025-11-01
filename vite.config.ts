@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/", // Use root base to work on all hosts
+  base: "/orbitalevo-web/", // GitHub Pages subpath
   server: {
     host: "::",
     port: 8080,
